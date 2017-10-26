@@ -10,8 +10,8 @@ if [ `whoami` != 'root' ];then
 fi
 
 # In order to configure Docker to start the containers automatically in case the server is rebooted
-cp etc/systemd/system/skel-project.service /etc/systemd/system
+cp etc/systemd/system/docker-infra.service /etc/systemd/system
 
 # Reload the daemons list and enable
 systemctl daemon-reload
-systemctl enable skel-project
+systemctl enable docker-infra
