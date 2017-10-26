@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "main": "server.js",
     "private": true,
-    "license": "GPL-3.0",
+    "license": "MIT",
     "author": "Jon Ribeiro <contact@jonathas.com>",
     "scripts": {
         "pretest": "gulp",
