@@ -23,10 +23,10 @@ Then you can install the packages inside the api directory:
 $ yarn install
 ```
 
-Build and test, generating the necessary files before starting the server:
+Generate the necessary files before starting the server:
 
 ```bash
-$ npm test
+$ ./node_modules/.bin/gulp
 ```
 
 ## Running
@@ -35,7 +35,7 @@ If you choose to run the infra from server-ssl, you will have to start the datab
 
 If you choose to run the infra inside the standalone directory, then it contains also the container for the database and cache.
 
-The way you can run any of these infrastructures is by pointing docker-compose to the correct file inside the infra directory:
+The way you can run any of these infrastructures is by pointing docker-compose to the chosen yml file inside the infra directory:
 
 ```bash
 $ docker-compose -f <your file here> up
