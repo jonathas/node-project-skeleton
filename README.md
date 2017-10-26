@@ -13,7 +13,7 @@ This project contains the skeleton I usually have in my Node projects.
 
 Inside the infra directory, there are 3 ways of running the infrastructure for the project:
 
-- standalone, which is for when you want to deploy all the containers for the same server.
+- standalone, which is for when you want to deploy all the containers in the same server.
 - server-ssl, which is when you want to deploy to servers behind a load balancer, but this load balancer doesn't accept ssl termination.
 - server, which is when you want to deploy to servers behind a load balancer and this load balancer accepts ssl termination, so the servers receive unencrypted requests from it.
 
