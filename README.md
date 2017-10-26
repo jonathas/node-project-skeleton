@@ -2,6 +2,8 @@
 
 This project contains the skeleton I usually have in my Node projects.
 
+What is used here: Express, Mocha, Istanbul, apiDoc, gulp, TypeScript, MongoDB, Redis, pm2, Docker, Nginx, SSL, etc.
+
 ## Initial dependencies
 
 - [yarn](https://yarnpkg.com/)
