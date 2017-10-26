@@ -10,6 +10,7 @@ services:
             - ../common/nginx/rotate-log.sh:/etc/nginx/rotate-log.sh
             - ./nginx/sites-available/default:/etc/nginx/conf.d/default.conf
             - ../common/nginx/includes:/etc/nginx/includes
+            - ../../frontend:/usr/share/nginx/html
             - /var/log/nginx:/var/log/nginx
         depends_on: 
             - api
