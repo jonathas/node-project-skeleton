@@ -27,6 +27,7 @@ services:
             - ../../api:/app
         depends_on: 
             - db
+            - cache
         ports:
             - 3000:3000
         environment:

@@ -1,0 +1,35 @@
+version: "2"
+services:
+    db:
+        image: mongo:3.4.2
+        ports:
+            - 27017:27017
+        volumes:
+            - "/mnt/mongo_data:/data/db" # /mnt should be an attached HD or partition formatted in XFS for better MongoDB performance
+        command: /bin/bash -c "mongod --auth"
+        network_mode: host
+
+    cache:
+        image: redis:3.0.7-alpine
+        volumes: 
+            - ./redis:/usr/local/etc/redis
+        ports:
+            - 6379:6379
+        command: "redis-server /usr/local/etc/redis/redis.conf"
+        network_mode: host
+
+    # The MongoDB backup cron
+    #   cron:
+    #   build: ../common/cron
+    #   container_name: skel_cron
+    #   volumes:
+    #       - /var/run/docker.sock:/var/run/docker.sock # sibling containers instead of child containers
+    #       - /var/log/skel:/var/log/skel
+    #       - ../common/cron/root:/etc/crontabs/root
+    #       - ../../api/cron:/home/node
+    #   network_mode: host
+
+networks:
+    default:
+        external:
+            name: "host"

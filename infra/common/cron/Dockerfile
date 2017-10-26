@@ -2,7 +2,6 @@ FROM node:8-alpine
 LABEL maintainer="Jon Ribeiro <contact@jonathas.com>"
 
 ADD rotate-log.sh /usr/local/bin/rotate-log
-ADD geoip-download.sh /usr/local/bin/geoip-download
 
 RUN apk update && apk add tzdata && apk add docker &&\ 
     cp /usr/share/zoneinfo/Europe/Prague /etc/localtime &&\ 

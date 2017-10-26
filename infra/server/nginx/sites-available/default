@@ -1,0 +1,44 @@
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name _;
+	
+	# Hide headers for improved security
+	server_tokens off;
+	#more_clear_headers "Server";
+	#more_clear_headers X-Powered-By;
+	
+    # CORS
+	add_header 'Access-Control-Allow-Origin' '*';
+
+	add_header X-Content-Type-Options nosniff;
+	add_header X-DNS-Prefetch-Control off;
+	add_header X-Download-Options noopen;
+	add_header X-Frame-Options SAMEORIGIN;
+	add_header X-XSS-Protection '1; mode=block';
+    add_header X-Server-Name $hostname;
+	
+	location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        access_log off;
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+
+    location /api/v1 {
+        include includes/proxy.conf;
+        proxy_pass http://127.0.0.1:3000;
+    }
+	
+	location ~ (\.env) {
+    	return 404;
+	}
+	location /maps/ {
+		return 404;
+	}
+
+}

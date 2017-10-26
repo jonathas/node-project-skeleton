@@ -1,4 +1,4 @@
-# Test with SSL - Standalone
+# Production with SSL
 version: "2"
 services:
     proxy:
@@ -25,16 +25,12 @@ services:
         volumes:
             - /var/log/skel:/root/.pm2/logs
             - ../../api:/app
-        depends_on: 
-            - db
-            - cache
         ports:
             - 3000:3000
         environment:
-            - NODE_ENV=test
-        command: "pm2-docker start --auto-exit --env test process.yml"
+            - NODE_ENV=production
         network_mode: host
-    
+
     cron:
         build: ../common/cron
         container_name: skel_cron
@@ -43,21 +39,6 @@ services:
             - /var/log/skel:/var/log/skel
             - ../common/cron/root:/etc/crontabs/root
             - ../../api/cron:/home/node
-        network_mode: host
-    
-    db:
-        image: mongo:3.4.10
-        container_name: skel_db
-        volumes:
-            - "./mongo_data:/data/db"
-        network_mode: host
-
-    cache:
-        image: redis:3.0.7-alpine
-        container_name: skel_cache
-        volumes: 
-            - ../common/redis:/usr/local/etc/redis
-        command: "redis-server /usr/local/etc/redis/redis.conf"
         network_mode: host
 
 networks:
