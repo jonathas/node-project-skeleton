@@ -1,5 +1,28 @@
 # Node Project Skeleton
 
+## Disclaimer (January of 2023)
+
+I've implemented this example in 2017, when API development was very different from today.
+Now in the beginning of 2023 I thought about updating it but then decided to keep it as it is for historical reasons and because there are just way too many things I'd change, so it would be better to start a similar project from scratch.
+
+Let me list below what I would do different if this was done today:
+
+- Use swagger (documentation in a json file) instead of apidoc
+- Follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#summary) for writing the commit messages
+- Versioning done with the help of [release-it](https://www.npmjs.com/package/release-it)
+- Drop gulp and use only typescript instead.
+- jest instead of mocha for the tests
+- jest instead of istanbul for code coverage
+- fastify instead of express
+- eslint instead of tslint
+- Enforce proper rules with eslint. [Example here](https://gist.github.com/jonathas/c6b5f110e1eaf92d94ac976a19a3a178)
+- nodemon is not needed anymore
+- bluebird is not needed anymore
+
+Truth be told, nowadays I'd recommend to start an API in Node.js using [Nest](https://nestjs.com/), which already gives you a well implemented architecture to start your project with. So I might be creating a similar project soon, but using Nest instead, and then we can compare the differences.
+
+## Intro
+
 This project contains the skeleton I usually have in my Node projects.
 
 What is used here: Express, Mocha, Istanbul, apiDoc, gulp, TypeScript, MongoDB, Redis, pm2, Docker, Nginx, SSL, etc.
